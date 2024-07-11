@@ -1,0 +1,144 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Song {
+  public:
+    string name, singerName;
+    int duration, year;
+};
+
+void SelectionSortName(vector<Song> &v) {
+
+    int n = 4;
+    for(int i = 0; i < n; i++) {
+        int indx;
+        string temp= v[i].name;
+        for(int j = i; j < n; j++) {
+            if(v[j].name <= temp) {
+                temp = v[j].name;
+                indx = j;
+            }
+        }
+        swap(v[i], v[indx]);
+    }
+}
+
+void SelectionSortSingerName(vector<Song> &v) {
+
+    int n = 4;
+    for(int i = 0; i < n; i++) {
+        int indx;
+        string temp = v[i].singerName;
+        for(int j = i; j < n; j++) {
+            if(v[j].singerName <= temp) {
+                temp = v[j].singerName;
+                indx = j;
+            }
+        }
+        swap(v[i], v[indx]);
+    }
+}
+
+void SelectionSortDuration(vector<Song> &v) {
+
+    int n = 4;
+    for(int i = 0; i < n; i++) {
+        int indx;
+        int temp = v[i].duration;
+        for(int j = i; j < n; j++) {
+            if(v[j].duration <= temp) {
+                temp= v[j].duration;
+                indx = j;
+            }
+        }
+        swap(v[i], v[indx]);
+    }
+}
+
+void SelectionSortYear(vector<Song> &v) {
+
+    int n = 4;
+    for(int i = 0; i < n; i++) {
+        int indx;
+        int temp= v[i].year;
+        for(int j = i; j < n; j++) {
+            if(v[j].year <= temp) {
+                temp= v[j].year;
+                indx = j;
+            }
+        }
+        swap(v[i], v[indx]);
+    }
+}
+int main() {
+    vector<Song> v(4);
+    v[0].name = "Dukkho Bilash";
+    v[0].singerName = "Artcell";
+    v[0].duration = 5;
+    v[0].year = 2014;
+
+    v[1].name = "Avash";
+    v[1].singerName = "Tuhin";
+    v[1].duration = 6;
+    v[1].year = 2020;
+
+    v[2].name = "Cholona Hariye Jai";
+    v[2].singerName = "Nibir Chowdhury";
+    v[2].duration = 4;
+    v[2].year = 2016;
+
+    v[3].name = "Alo";
+    v[3].singerName = "Tahsan";
+    v[3].duration = 3;
+    v[3].year = 2017;
+
+    int option;
+    cin>>option;
+    if(option == 1) {
+        /// sort by song name
+        SelectionSortName(v);
+        for(int i = 0; i < 4; i++) {
+            cout<<v[i].name <<'\n';
+            cout<<v[i].singerName <<'\n';
+            cout<<v[i].duration <<" Minutes\n";
+            cout<<v[i].year<<endl;
+            cout<<endl;
+        }
+
+    } else if(option == 2) {
+        /// sort by singer name
+        SelectionSortSingerName(v);
+        for(int i = 0; i < 4; i++) {
+            cout<<v[i].name <<'\n';
+            cout<<v[i].singerName <<'\n';
+            cout<<v[i].duration <<" Minutes\n";
+            cout<<v[i].year<<endl;
+            cout<<endl;
+        }
+
+    } else if(option == 3) {
+        /// sort by song duration
+        SelectionSortDuration(v);
+        for(int i = 0; i < 4; i++) {
+             cout<<v[i].name <<'\n';
+            cout<<v[i].singerName <<'\n';
+            cout<<v[i].duration <<" Minutes\n";
+            cout<<v[i].year<<endl;
+            cout<<endl;
+        }
+
+    } else if(option == 4) {
+        ///sort by released year
+        SelectionSortYear(v);
+        for(int i = 0; i < 4; i++) {
+            cout<<v[i].name <<'\n';
+            cout<<v[i].singerName <<'\n';
+            cout<<v[i].duration <<" Minutes\n";
+            cout<<v[i].year<<endl;
+            cout<<endl;
+        }
+    }
+
+
+    return 0;
+}
