@@ -1,0 +1,82 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Card {
+public:
+    string suit;
+    int rank;
+};
+
+void insertionSortrank(vector<Card> &v) {
+
+    int n = 3;
+    for(int i = 0; i < n; i++) {
+        int indx;
+        int temp= v[i].rank;
+        for(int j = i; j < n; j++) {
+            if(v[j].rank<=temp) {
+                temp = v[j].rank;
+                indx = j;
+            }
+        }
+        swap(v[i], v[indx]);
+    }
+}
+
+int main() {
+    vector<Card>vSpades(3);
+    vSpades[0].suit = "Spades";
+    vSpades[0].rank = 3;
+    vSpades[1].suit = "Spades";
+     vSpades[1].rank = 2;
+     vSpades[2].suit = "Spades";
+     vSpades[2].rank = 10;
+      vector<Card>vHeart(3);
+    vHeart[0].suit = "Hearts";
+    vHeart[0].rank = 9;
+    vHeart[1].suit = "Hearts";
+     vHeart[1].rank = 5;
+     vHeart[2].suit = "Hearts";
+     vHeart[2].rank = 10;
+     vector<Card>vDaimon(3);
+    vDaimon[0].suit = "Diamonds";
+    vDaimon[0].rank = 11;
+    vDaimon[1].suit = "Diamonds";
+     vDaimon[1].rank = 5;
+     vDaimon[2].suit = "Diamonds";
+     vDaimon[2].rank = 1;
+     vector<Card>vClub(3);
+    vClub[0].suit = "Clubs";
+    vClub[0].rank = 7;
+    vClub[1].suit = "Clubs";
+     vClub[1].rank = 3;
+     vClub[2].suit = "Clubs";
+      vClub[2].rank = 8;
+     
+       insertionSortrank(vSpades);
+
+     for (int i = 0;i <3;i++) {
+        cout << vSpades[i].suit << " " << vSpades[i].rank << endl;
+
+     }
+       insertionSortrank(vHeart);
+
+     for (int i = 0;i <3;i++) {
+        cout << vHeart[i].suit << " " << vHeart[i].rank << endl;
+
+     }
+      insertionSortrank(vDaimon);
+
+     for (int i = 0;i <3;i++) {
+        cout << vDaimon[i].suit << " " << vDaimon[i].rank << endl;
+
+     }
+       insertionSortrank(vClub);
+
+     for (int i = 0;i <3;i++) {
+        cout << vClub[i].suit << " " << vClub[i].rank << endl;
+
+     }
+     
+    return 0;
+}
