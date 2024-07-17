@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>merge(vector<int>v, vector<int>v1) {
+    vector<int>ans;
+    int i = 0, j = 0;
+    while (i < v.size() and j < v1.size()) {
+        if (v[i] < v1[j]) {
+            ans.push_back(v[i]);
+            i++;
+        }
+        else
+        {
+            ans.push_back(v1[j]);
+            j++;
+        }
+    }
+    while (i < v.size()) {
+        ans.push_back(v[i]);
+        i++;
+    }
+    while (j < v1.size())
+    {
+        ans.push_back(v1[j]);
+        j++;
+    }
+    return ans;
+}
+vector<int>merge2(vector<int>ans, vector<int>v2) {
+    int k, l = 0;
+    vector<int>sln;
+    while (k < ans.size() and l < v2.size()) {
+        if (ans[k] < v2[l]) {
+            sln.push_back(ans[k]);
+            k++;
+        }
+        else
+        {
+            sln.push_back(v2[l]);
+            l++;
+        }
+    }
+    while (k < ans.size()) {
+        sln.push_back(ans[k]);
+        k++;
+    }
+    while (l < v2.size()) {
+        sln.push_back(v2[l]);
+        l++;
+    }
+    return sln;
+
+}
+
+
+int main() {
+    vector<int>v({ 1,2,3,4 }), v1({ 2,3,4,5,6,6 }),v2({6,7,8,9,9,10});
+    auto ans = merge(v, v1);
+
+    for (auto x : ans) {
+        cout << x<<" ";
+    }
+    auto ans2 = merge2(ans, v2);
+    for (auto it : ans2) {
+        cout << it << " ";
+    }
+
+    return 0;
+}
+
+
+
